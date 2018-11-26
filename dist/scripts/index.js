@@ -5,8 +5,28 @@ var isMobile = false;
 window.addEventListener("resize", resizeWindowEvent, false);
 
 function ready() {
+    addScripts();
+    addModals();
     editTextColors();
     resizeWindowEvent();
+}
+
+function addScripts() {
+    var script = document.createElement('script');
+    script.src = 'scripts/sweetalert2.min.js';
+    document.body.appendChild(script);
+}
+
+function addModals() {
+    var footerLinks = document.querySelectorAll('#footer5-j .links a');
+    var modalLink = footerLinks[1];
+    modalLink.setAttribute('onclick', 'careerModal()');
+    return false;
+}
+
+function careerModal() {
+    swal({ html: "Работа Ведущим и Администратором Клуба<br/><br/> отправьте свое резюме по адресу:<br/> <a href='mailto:drivespb@mafia-people.ru'>drivespb@mafia-people.ru</a>"});
+    return false;
 }
 
 function editTextColors() {
